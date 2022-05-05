@@ -35,7 +35,7 @@ if($user['user_types_id'] == 0){
 	$_SESSION['name'] = $user['user_firstname'];
 	$_SESSION['email'] = $user['email'];
 	echo '<script>window.location.replace("http://localhost/startbootstrap-agency-gh-pages/Browse/web/browse.php");</script>';
-}else{
+}else if($user['user_types_id']== 1){
 	$_SESSION['name'] = $user['user_firstname'];
 	$_SESSION['email'] = $user['email'];
 	echo '<script>window.location.replace("http://localhost/startbootstrap-agency-gh-pages/Admin.php");</script>';
