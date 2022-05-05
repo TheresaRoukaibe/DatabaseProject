@@ -29,6 +29,7 @@ if($conn->connect_error){
   if ($user) { 
     echo '<script>alert("Account with this email already exists! Click OK to try again!");window.location.href = "index.php";</script>';
   }else{
+	  //adding based on type
 	  if($user_types_id == 'Tourist'){
 		  $sql = "SELECT * FROM postal_codes WHERE code_city_name=?";
 $result = $pdo->prepare($sql);
