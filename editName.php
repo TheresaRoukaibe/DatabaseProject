@@ -6,7 +6,7 @@ $new_att_name = $_GET['att_name'];
 $db = mysqli_connect('localhost', 'root', '', 'touristhelper.db');
 $conn = new mysqli('localhost', 'root', '', 'touristhelper.db');
 
-if(empty($att_name)){
+if(empty($att_name) or empty($new_att_name)){
 	echo '<script>alert("Please enter name. Failed to update!");window.location.href = "Admin.php";</script>';
 }else{
 	if($conn->connect_error){
