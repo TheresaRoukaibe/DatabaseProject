@@ -31,6 +31,7 @@ $user = $result2->fetch();
 
 if($user){
 	if($hobby){
+		//check if hobby already exists 
 $stmt2 = $conn->prepare("INSERT INTO user_enjoys(enjoys_user_id, enjoys_hobby_id) VALUES(?,?)");
 	$stmt2->bind_param("ii", $user['user_id'], $hobby['hobby_id']);
 	$stmt2->execute();
