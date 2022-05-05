@@ -29,6 +29,7 @@ $att = $result2->fetch();
 
 if($att){
 	if($hobby){
+		//if hobby already exists don't add it to the hobbies table, get id
 $stmt2 = $conn->prepare("INSERT INTO attraction_involves(inv_hobby_id, inv_att_id) VALUES(?,?)");
 	$stmt2->bind_param("ii", $hobby['hobby_id'], $att['att_id']);
 	$stmt2->execute();
@@ -42,6 +43,7 @@ $stmt2 = $conn->prepare("INSERT INTO attraction_involves(inv_hobby_id, inv_att_i
 	$stmt = $conn->prepare("INSERT INTO hobbies(hobby_name) VALUES(?)");
 	$stmt->bind_param("s", $hobby_name);
 	$stmt->execute(); 
+	
 	$sql3 = "SELECT * FROM hobbies WHERE hobby_name=?"; 
 $result3 = $pdo->prepare($sql3);
 $result3->bindParam(1, $hobby_name);
