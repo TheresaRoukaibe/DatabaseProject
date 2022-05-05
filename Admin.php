@@ -86,12 +86,12 @@
 	
                         <div class="col-md-6">
                             <div class="form-group">
-                                <!-- Name input-->
+                                <!-- Attraction Name input-->
                                 <input class="form-control" id="att_name" name = "att_name" type="text" placeholder="Attraction Name *" data-sb-validations="required"/>
                                 <div class="invalid-feedback" data-sb-feedback="att_name:required">A name is required.</div>
                             </div>
 							  <div class="form-group mb-md-0">
-                                <!-- Capacity input-->
+                                <!-- Capacity of place input-->
                                 <input class="form-control" id="att_capacity" name="att_capacity" type="number" placeholder="Place enjoyable with how many people *" data-sb-validations="required" />
                                 <div class="invalid-feedback" data-sb-feedback="att_capacity:required">Field is required.</div>
                             </div>
@@ -102,24 +102,25 @@
                             </div>
 						
                             <div class="form-group">
-                                <!-- Opening input-->
+                                <!-- Opening hours input-->
                                <input class="form-control" id="att_budget_opening_hours" name = "att_budget_opening_hours" type="text" placeholder="Attraction opening hour *" data-sb-validations="required"/>
                                 <div class="invalid-feedback" data-sb-feedback="att_budget_opening_hours:required">A time is required.</div>
                             </div>
 							
 						
                             <div class="form-group mb-md-0">
-                                <!-- Closing input-->
+                                <!-- Closing hours input-->
                              <input class="form-control" id="att_budget_closing_hours" name = "att_budget_closing_hours" type="text" placeholder="Attraction closing hour *" data-sb-validations="required"/>
                                 <div class="invalid-feedback" data-sb-feedback="att_budget_closing_hours:required">A time is required.</div>
                             </div>
 							   <div class="form-group mb-md-0">
-                                <!-- Closing input-->
+                                <!-- image url input-->
                              <input class="form-control" id="url" name = "url" type="text" placeholder="Picture url *" />
                                
                             </div>
 							
 							<div 
+							<!-- attraction type input-->
 							 <label class="form-group mb-md-0"> Select Attraction Type: </label>
                                 <label for="Restaurant" class="radio-inline"><input type="radio" name="attraction_type" value= "Restaurant" id="Restaurant">Restaurant</label>
 								 <label for="Night Life" class="radio-inline"><input type="radio" name="attraction_type" value="Night Life" id="Night Life">Night Life</label>
@@ -130,13 +131,13 @@
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
 		
-                                <!-- Address input-->
+                                <!-- Description input-->
                                 <textarea class="form-control" id="att_description" name="att_description" placeholder="Enter Description*" data-sb-validations="required"></textarea>
                                 <div class="invalid-feedback" data-sb-feedback="att_description:required">Please enter description for a better user experience.</div>
                             </div>
 							<div class="form-group form-group-textarea mb-md-0">
 		
-                                <!-- Address input-->
+                                <!-- City input-->
                                 <textarea class="form-control" id="att_loc_id" name="att_loc_id" placeholder="Specify city *" data-sb-validations="required"></textarea>
                                 <div class="invalid-feedback" data-sb-feedback="att_loc_id:required">Please enter city for a customized experience.</div>
                             </div>
