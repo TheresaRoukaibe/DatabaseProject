@@ -28,7 +28,7 @@ if(empty($place)){
 	$stmt2->bind_param("ss", $att_budget_closing_hours, $att_name);
 	$stmt1->execute(); 
 	$stmt2->execute(); 
-		echo '<script>alert("Hours Updated. Refreshing...");window.location.href = "Admin.php";</script>';
+		echo '<script>alert("Opening and closing hours Updated. Refreshing...");window.location.href = "Admin.php";</script>';
 	$stmt1->close();
 	$stmt2->execute(); 
 	$conn->close();
