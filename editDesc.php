@@ -13,6 +13,7 @@ if(empty($att_name) or empty($att_desc)){
 	if($conn->connect_error){
 	die($conn->connect_error);
 }else{
+	
 	$sql = "SELECT * FROM tourist_attractions WHERE att_name=?"; 
 $result = $pdo->prepare($sql);
 $result->bindParam(1, $att_name);
@@ -25,7 +26,7 @@ if(empty($place)){
 	$stmt = $conn->prepare("UPDATE tourist_attractions SET att_desc =? WHERE att_name= ?");
 	$stmt->bind_param("ss", $att_desc, $att_name);
 	$stmt->execute(); 
-		echo '<script>alert("Hours Updated. Refreshing...");window.location.href = "Admin.php";</script>';
+		echo '<script>alert("Description Updated. Refreshing...");window.location.href = "Admin.php";</script>';
 	$stmt->close();
 	$conn->close();
 	}
