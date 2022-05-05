@@ -22,6 +22,7 @@ $place = $result->fetch();
 if(empty($place)){
 	echo '<script>alert("Could not find place. Failed to Update! Make sure of name");window.location.href = "Admin.php";</script>';
 }else{
+	//updating type id based on type
 	if($attraction_type_id == "Restaurant"){
 		$type1 = 1;
 	$stmt = $conn->prepare("UPDATE tourist_attractions SET attraction_type_id = ? WHERE att_name= ?");
