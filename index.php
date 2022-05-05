@@ -177,6 +177,7 @@
                                 <div class="invalid-feedback" data-sb-feedback="user_age:required">Age is required.</div>
                             </div>
 							<div 
+							<!-- User type input-->
 							 <label class="form-group mb-md-0"> Select Role: </label>
                                 <label for="Tourist" class="radio-inline"><input type="radio" name="user_types_id" value= "Tourist" id="Tourist">Tourist</label>
 								 <label for="Business Owner" class="radio-inline"><input type="radio" name="user_types_id" value="Business Owner" id="Business Owner">Business Owner</label>
