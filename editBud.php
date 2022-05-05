@@ -12,6 +12,8 @@ if(empty($att_name) or empty($att_budget)){
 	if($conn->connect_error){
 	die($conn->connect_error);
 }else{
+	
+	//checking if place exists 
 	$sql = "SELECT * FROM tourist_attractions WHERE att_name=?"; 
 $result = $pdo->prepare($sql);
 $result->bindParam(1, $att_name);
@@ -21,6 +23,7 @@ $place = $result->fetch();
 if(empty($place)){
 	echo '<script>alert("Could not find place. Failed to Update! Make sure of name");window.location.href = "Admin.php";</script>';
 }else{
+	//updating budget
 	$stmt = $conn->prepare("UPDATE tourist_attractions SET att_budget = ? WHERE att_name= ?");
 	$stmt->bind_param("is", $att_budget, $att_name);
 	$stmt->execute(); 
