@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include("connection.php");
 $pdo = new PDO ("mysql:host=localhost;dbname=touristhelper.db","root", "");
 $email = $_GET['email'];
@@ -15,6 +16,8 @@ if(empty($att_name) or empty($email) or empty($review) or empty($visit_time) or 
 if($conn->connect_error){
 	die($conn->connect_error);
 }else{
+	
+	if($_SESSION['email'] == $email){
 	$sql = "SELECT * FROM users WHERE email=?"; 
 $result = $pdo->prepare($sql);
 $result->bindParam(1, $email);
@@ -38,7 +41,9 @@ $stmt2 = $conn->prepare("INSERT INTO user_visits(visit_user_id, visit_loc_id, vi
 	
 	$stmt->close();
 	$conn->close();
+  }else{
+	 echo '<script>alert("Not your email. Make sure of email"); window.location.href = "browse.php";</script>'; 
   }
 }
-
+}
 ?>
