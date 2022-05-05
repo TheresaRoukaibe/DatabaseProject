@@ -1,6 +1,8 @@
 <?php
 $pdo = new PDO ("mysql:host=localhost;dbname=touristhelper.db","root", "");
 include("connection.php");
+
+//gettin name of attraction to delete
 $att_name = $_GET['att_name'];
 $db = mysqli_connect('localhost', 'root', '', 'touristhelper.db');
 $conn = new mysqli('localhost', 'root', '', 'touristhelper.db');
@@ -11,6 +13,7 @@ if(empty($att_name)){
 	if($conn->connect_error){
 	die($conn->connect_error);
 }else{
+	//checking if attraction exists
 	$sql = "SELECT * FROM tourist_attractions WHERE att_name=?"; 
 $result = $pdo->prepare($sql);
 $result->bindParam(1, $att_name);
@@ -20,15 +23,15 @@ $place = $result->fetch();
 if(empty($place)){
 	echo '<script>alert("Could not find place. Failed to delete! Make sure of name");window.location.href = "Admin.php";</script>';
 }else{
-	//$stmt = $conn->prepare("DELETE FROM tourist_attractions WHERE att_name= ?");
-	//$stmt->bind_param("s", $att_name);
-	//$stmt->execute(); 
-	
+	 
+	 //if exists getting attraction
 	$sql2 = "SELECT * FROM tourist_attractions WHERE att_name=?"; 
 $result2 = $pdo->prepare($sql2);
 $result2->bindParam(1, $att_name);
 $result2->execute();
 $att = $result2->fetch();
+
+//deleting from both tables so attraction does not show up on browse page 
  $stmt2 = $conn->prepare("DELETE FROM attraction_involves WHERE inv_att_id = ?");
 	$stmt2->bind_param("i", $att['att_id']);
 	$stmt2->execute(); 
