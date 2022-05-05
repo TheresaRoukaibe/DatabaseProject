@@ -16,7 +16,7 @@ if(empty($att_name) or empty($email) or empty($review) or empty($visit_time) or 
 if($conn->connect_error){
 	die($conn->connect_error);
 }else{
-	
+	//check if mail matches the account open
 	if($_SESSION['email'] == $email){
 	$sql = "SELECT * FROM users WHERE email=?"; 
 $result = $pdo->prepare($sql);
