@@ -13,6 +13,8 @@ if(empty($att_name) or empty($att_city)){
 	if($conn->connect_error){
 	die($conn->connect_error);
 }else{
+	
+	//getting postal code id from city name
 $sql1 = "SELECT * FROM postal_codes WHERE code_city_name=?";
 $result1 = $pdo->prepare($sql1);
 $result1->bindParam(1, $att_city);
