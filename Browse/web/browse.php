@@ -144,7 +144,7 @@ $array7 = $query7->get_result();
       exit; 
    }
   
- 
+   
    
     try{
  $query5 = $mysqli->prepare("Select tourist_attraction_types.* FROM tourist_attractions,tourist_attraction_types,users,postal_codes WHERE tourist_attractions.postal_code_id = postal_codes.code_id AND  users.postal_code = tourist_attractions.postal_code_id AND users.email = '$email'");
@@ -407,7 +407,14 @@ $array6 = $query6->get_result();
                             <ul class="list-unstyled li-space-lg">
 							 <li class="media">
                                     <i class="fas fa-square"></i>
-                                    <div class="media-body"> CITY: <?php echo $place['code_city_name'] ?> </div>
+									<?php  
+									$pdo = new PDO ("mysql:host=localhost;dbname=touristhelper.db","root", "");
+									$sql2 = "SELECT postal_codes.* FROM postal_codes, tourist_attractions WHERE postal_codes.code_id = tourist_attractions.postal_code_id AND tourist_attractions.postal_code_id = ?"; 
+$result2 = $pdo->prepare($sql2);
+$result2->bindParam(1, $tourist_attractions['postal_code_id']);
+$result2->execute();
+$place2 = $result2->fetch(); ?>
+                                    <div class="media-body"> CITY: <?php echo $place2['code_city_name'] ?> </div>
                                 </li>
                                 <li class="media">
                                     <i class="fas fa-square"></i>
